@@ -1,26 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import {
+	MantineProvider,
+	ColorSchemeProvider,
+	ColorScheme,
+} from "@mantine/core";
+import { HeaderMiddle } from "./components/HeaderMiddle";
+import { useColorScheme } from "@mantine/hooks";
+import { HeroWithImage } from "./components/HeroWithImage";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const preferredColorScheme = useColorScheme("dark");
+	const [colorScheme, setColorScheme] =
+		useState<ColorScheme>(preferredColorScheme);
+	const toggleColorScheme = (value?: ColorScheme) =>
+		setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
+
+	return (
+		<ColorSchemeProvider
+			colorScheme={colorScheme}
+			toggleColorScheme={toggleColorScheme}
+		>
+			<MantineProvider
+				theme={{ colorScheme }}
+				withGlobalStyles
+				withNormalizeCSS
+			>
+				<HeaderMiddle
+					links={[
+						{
+							link: "",
+							label: "Skills",
+						},
+						{
+							link: "",
+							label: "Projects",
+						},
+					]}
+				/>
+				<HeroWithImage />
+			</MantineProvider>
+		</ColorSchemeProvider>
+	);
 }
 
 export default App;
