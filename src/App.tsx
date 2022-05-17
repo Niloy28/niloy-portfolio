@@ -46,16 +46,16 @@ function App() {
 				</Container>
 				<br />
 				<SkillSet
-					skill={[
+					skills={[
 						{
 							skillNames: ["C#", "TypeScript", "JavaScript", "C++"],
 							skillType: "Programming Languages",
-							skillLevels: ["90%"],
+							skillLevels: ["90%", "70%", "70%", "65%"],
 						},
 						{
 							skillNames: ["HTML", "CSS", "React", "Next.js"],
 							skillType: "Web Tech",
-							skillLevels: ["90%"],
+							skillLevels: ["90%", "70%", "70%", "65%"],
 						},
 						{
 							skillNames: ["Firebase Firestore"],
@@ -65,7 +65,7 @@ function App() {
 						{
 							skillNames: ["Unity Game Engine", "Git"],
 							skillType: "Others",
-							skillLevels: ["90%"],
+							skillLevels: ["90%", "70%"],
 						},
 					]}
 				/>

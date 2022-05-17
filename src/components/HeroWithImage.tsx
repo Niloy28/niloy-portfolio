@@ -107,11 +107,42 @@ export function HeroWithImage() {
 									>
 										Farhan Ishrak Islam
 									</Text>{" "}
-									but you can call me Niloy
+									but you can call me{" "}
+									<Text
+										component="span"
+										inherit
+										variant="gradient"
+										gradient={{ from: "pink", to: "yellow" }}
+									>
+										Niloy
+									</Text>
 								</Title>
 
 								<Text className={classes.description} mt={30}>
-									I make whatever fits my fancy on the day: either games or web
+									I make whatever fits my fancy on the day: either{" "}
+									<Text
+										component="span"
+										inherit
+										variant="gradient"
+										gradient={{
+											from: "rgba(27,190,217,1)",
+											to: "rgba(21,212,17,1)",
+										}}
+									>
+										games
+									</Text>{" "}
+									or{" "}
+									<Text
+										component="span"
+										inherit
+										variant="gradient"
+										gradient={{
+											from: "rgba(27,190,217,1)",
+											to: "rgba(21,212,17,1)",
+										}}
+									>
+										web
+									</Text>{" "}
 									apps!
 								</Text>
 							</div>
