@@ -7,6 +7,7 @@ import {
 import { HeaderMiddle } from "./components/HeaderMiddle";
 import { useColorScheme } from "@mantine/hooks";
 import { HeroWithImage } from "./components/HeroWithImage";
+import Footer from "./components/Footer";
 
 function App() {
 	const preferredColorScheme = useColorScheme("dark");
@@ -38,6 +39,7 @@ function App() {
 					]}
 				/>
 				<HeroWithImage />
+				<Footer />
 			</MantineProvider>
 		</ColorSchemeProvider>
 	);

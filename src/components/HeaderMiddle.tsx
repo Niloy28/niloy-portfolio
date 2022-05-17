@@ -10,7 +10,7 @@ import {
 	Menu,
 } from "@mantine/core";
 import { useBooleanToggle } from "@mantine/hooks";
-import { BrandTwitter, BrandYoutube, BrandInstagram } from "tabler-icons-react";
+import { BrandGithub, BrandBitbucket, BrandGitlab } from "tabler-icons-react";
 import ThemeToggle from "./ThemeToggle";
 
 const useStyles = createStyles((theme) => ({
@@ -109,7 +109,7 @@ export function HeaderMiddle({ links }: HeaderMiddleProps) {
 	));
 
 	return (
-		<Header height={56} mb={120}>
+		<Header height={56} mb={120} fixed>
 			<Container className={classes.inner}>
 				<Menu
 					opened={opened}
@@ -141,14 +141,29 @@ export function HeaderMiddle({ links }: HeaderMiddleProps) {
 				</Text>
 
 				<Group spacing={0} className={classes.social} position="right" noWrap>
-					<ActionIcon size="lg">
-						<BrandTwitter size={18} />
+					<ActionIcon
+						size="lg"
+						component="a"
+						href="https://github.com/Niloy28"
+						target="_blank"
+					>
+						<BrandGithub size={18} />
 					</ActionIcon>
-					<ActionIcon size="lg">
-						<BrandYoutube size={18} />
+					<ActionIcon
+						size="lg"
+						component="a"
+						href="https://bitbucket.org/Niloy28/"
+						target="_blank"
+					>
+						<BrandBitbucket size={18} />
 					</ActionIcon>
-					<ActionIcon size="lg">
-						<BrandInstagram size={18} />
+					<ActionIcon
+						size="lg"
+						component="a"
+						href="https://gitlab.com/Niloy28"
+						target="_blank"
+					>
+						<BrandGitlab size={18} />
 					</ActionIcon>
 				</Group>
 
