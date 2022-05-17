@@ -6,7 +6,6 @@ import {
 	Button,
 	Grid,
 	Image,
-	SimpleGrid,
 } from "@mantine/core";
 import { Box, Tools } from "tabler-icons-react";
 import ProfileImage from "../images/profile.jpeg";
@@ -76,12 +75,14 @@ const useStyles = createStyles((theme) => ({
 	},
 
 	control: {
-		paddingLeft: 50,
-		paddingRight: 50,
+		paddingLeft: 20,
+		paddingRight: 20,
 		fontFamily: `Greycliff CF, ${theme.fontFamily}`,
 		fontSize: 22,
+		width: "70%",
 
 		[theme.fn.smallerThan("md")]: {
+			marginTop: 0,
 			width: "100%",
 		},
 	},
@@ -113,34 +114,6 @@ export function HeroWithImage() {
 									I make whatever fits my fancy on the day: either games or web
 									apps!
 								</Text>
-
-								<SimpleGrid cols={2}>
-									<Button
-										variant="gradient"
-										gradient={{ from: "pink", to: "yellow" }}
-										size="lg"
-										className={classes.control}
-										mt={40}
-										leftIcon={<Tools size={18} />}
-									>
-										Skill Set
-									</Button>
-									<Button
-										variant="gradient"
-										gradient={{
-											from: "rgba(27,190,217,1)",
-											to: "rgba(21,212,17,1)",
-											deg: 45,
-										}}
-										size="lg"
-										ml="1em"
-										className={classes.control}
-										mt={40}
-										leftIcon={<Box size={18} />}
-									>
-										Projects
-									</Button>
-								</SimpleGrid>
 							</div>
 						</Grid.Col>
 						<Grid.Col span={4} className={classes.profileImage}>
@@ -148,6 +121,36 @@ export function HeroWithImage() {
 						</Grid.Col>
 					</Grid>
 				</div>
+				<Grid columns={12}>
+					<Grid.Col sm={12} md={3}>
+						<Button
+							variant="gradient"
+							size="lg"
+							gradient={{ from: "pink", to: "yellow" }}
+							className={classes.control}
+							mt={40}
+							leftIcon={<Tools size={18} />}
+						>
+							Skill Set
+						</Button>
+					</Grid.Col>
+					<Grid.Col sm={12} md={3}>
+						<Button
+							variant="gradient"
+							size="lg"
+							gradient={{
+								from: "rgba(27,190,217,1)",
+								to: "rgba(21,212,17,1)",
+								deg: 45,
+							}}
+							className={classes.control}
+							mt={40}
+							leftIcon={<Box size={18} />}
+						>
+							Projects
+						</Button>
+					</Grid.Col>
+				</Grid>
 			</Container>
 		</div>
 	);
