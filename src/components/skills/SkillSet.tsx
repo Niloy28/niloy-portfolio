@@ -4,7 +4,7 @@ import SkillDisplay from "./SkillDisplay";
 
 const useStyles = createStyles((theme) => ({
 	paper: {
-		marginBottom: "2em",
+		marginBottom: theme.spacing.md,
 	},
 	wrapper: {
 		padding: "2em",
@@ -14,10 +14,11 @@ const useStyles = createStyles((theme) => ({
 		border: `1px solid ${
 			theme.colorScheme === "dark" ? theme.colors.dark[8] : theme.colors.gray[2]
 		}`,
+		marginBottom: theme.spacing.lg,
 	},
 	title: {
-		marginTop: "1em",
-		marginBottom: "2em",
+		marginTop: theme.spacing.md,
+		marginBottom: theme.spacing.lg,
 		textAlign: "left",
 		fontWeight: "bold",
 		color: theme.colors.teal,

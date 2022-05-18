@@ -18,13 +18,6 @@ const useStyles = createStyles((theme) => {
 			display: "flex",
 			backgroundColor:
 				theme.colorScheme === "dark" ? theme.colors.dark[8] : theme.white,
-			borderRadius: theme.radius.lg,
-			padding: 4,
-			border: `1px solid ${
-				theme.colorScheme === "dark"
-					? theme.colors.dark[8]
-					: theme.colors.gray[2]
-			}`,
 
 			[BREAKPOINT]: {
 				flexDirection: "column",
@@ -118,7 +111,7 @@ export default function ContactForm() {
 	const { classes } = useStyles();
 
 	return (
-		<Paper className={classes.paper} shadow="md" radius="lg">
+		<Paper className={classes.paper} shadow="md" radius="lg" withBorder>
 			<div className={classes.wrapper}>
 				<div className={classes.contacts}>
 					<Text size="lg" weight={700} className={classes.title}>

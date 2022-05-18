@@ -10,8 +10,8 @@ import { HeaderMiddle } from "./components/HeaderMiddle";
 import { useColorScheme } from "@mantine/hooks";
 import { HeroWithImage } from "./components/HeroWithImage";
 import Footer from "./components/Footer";
-import ContactForm from "./components/ContactForm";
-import SkillSet from "./components/SkillSet";
+import ContactForm from "./components/contact/ContactForm";
+import SkillSet from "./components/skills/SkillSet";
 import {
 	CSharp,
 	Cplusplus,
@@ -26,6 +26,7 @@ import {
 	Git,
 } from "./images/icons";
 import { Database, Globe, Icons, Tools } from "tabler-icons-react";
+import ProjectCategory from "./components/projects/ProjectCategory";
 
 function App() {
 	const preferredColorScheme = useColorScheme("dark");
@@ -63,45 +64,55 @@ function App() {
 				<Container>
 					<HeroWithImage />
 				</Container>
-				<br />
-				<Element name="skillset">
-					<SkillSet
-						skills={[
-							{
-								skillNames: ["C#", "TypeScript", "JavaScript", "C++"],
-								skillType: "Programming Languages",
-								skillLevels: ["90", "70", "70", "65"],
-								skillIcons: [CSharp, TS, JS, Cplusplus],
-								skillCategoryIcon: <Tools />,
-							},
-							{
-								skillNames: ["HTML", "CSS", "React", "Next.js"],
-								skillType: "Web Tech",
-								skillLevels: ["80", "65", "75", "65"],
-								skillIcons: [HTML, CSS, React, NextJS],
-								skillCategoryIcon: <Globe />,
-							},
-							{
-								skillNames: ["Firebase Firestore"],
-								skillType: "Database",
-								skillLevels: ["60"],
-								skillIcons: [Firebase],
-								skillCategoryIcon: <Database />,
-							},
-							{
-								skillNames: ["Unity Game Engine", "Git"],
-								skillType: "Others",
-								skillLevels: ["90", "70"],
-								skillIcons: [Unity, Git],
-								skillCategoryIcon: <Icons />,
-							},
-						]}
-					/>
-				</Element>
 
-				<Element name="contact">
-					<ContactForm />
-				</Element>
+				<Container>
+					<Element name="skillset">
+						<SkillSet
+							skills={[
+								{
+									skillNames: ["C#", "TypeScript", "JavaScript", "C++"],
+									skillType: "Programming Languages",
+									skillLevels: ["90", "70", "70", "65"],
+									skillIcons: [CSharp, TS, JS, Cplusplus],
+									skillCategoryIcon: <Tools />,
+								},
+								{
+									skillNames: ["HTML", "CSS", "React", "Next.js"],
+									skillType: "Web Tech",
+									skillLevels: ["80", "65", "75", "65"],
+									skillIcons: [HTML, CSS, React, NextJS],
+									skillCategoryIcon: <Globe />,
+								},
+								{
+									skillNames: ["Firebase Firestore"],
+									skillType: "Database",
+									skillLevels: ["60"],
+									skillIcons: [Firebase],
+									skillCategoryIcon: <Database />,
+								},
+								{
+									skillNames: ["Unity Game Engine", "Git"],
+									skillType: "Others",
+									skillLevels: ["90", "70"],
+									skillIcons: [Unity, Git],
+									skillCategoryIcon: <Icons />,
+								},
+							]}
+						/>
+					</Element>
+				</Container>
+
+				<Container>
+					<Element name="projects">
+						<ProjectCategory />
+					</Element>
+				</Container>
+
+				<Container>
+					<Element name="contact">
+						<ContactForm />
+					</Element>
+				</Container>
 
 				<Footer
 					links={[
