@@ -1,10 +1,30 @@
-import { useEffect, useState } from "react";
-import { createStyles, Group, Button, Container } from "@mantine/core";
+import { ReactElement, useEffect, useState } from "react";
+import { createStyles, Group, Button, Container, Paper } from "@mantine/core";
 import SkillDisplay from "./SkillDisplay";
 
 const useStyles = createStyles((theme) => ({
+	paper: {
+		marginBottom: "2em",
+	},
+	wrapper: {
+		padding: "2em",
+		backgroundColor:
+			theme.colorScheme === "dark" ? theme.colors.dark[8] : theme.white,
+		borderRadius: theme.radius.lg,
+		border: `1px solid ${
+			theme.colorScheme === "dark" ? theme.colors.dark[8] : theme.colors.gray[2]
+		}`,
+	},
+	title: {
+		marginTop: "1em",
+		marginBottom: "2em",
+		textAlign: "left",
+		fontWeight: "bold",
+		color: theme.colors.teal,
+	},
 	buttonGroup: {
-		display: "flex",
+		display: "grid",
+		gridTemplateColumns: "1fr 1fr",
 		justifyContent: "space-around",
 	},
 	button: {
@@ -18,8 +38,10 @@ const useStyles = createStyles((theme) => ({
 
 interface Skill {
 	skillType: string;
+	skillCategoryIcon: ReactElement;
 	skillNames: string[];
 	skillLevels: string[];
+	skillIcons: string[];
 }
 
 interface SkillPropType {
@@ -36,6 +58,7 @@ export default function SkillSet(props: SkillPropType) {
 		const skillType = skill.skillType;
 		return (
 			<Button
+				leftIcon={skill.skillCategoryIcon}
 				className={classes.button}
 				onClick={() => {
 					setDisplayedSkill(skillType);
@@ -54,6 +77,7 @@ export default function SkillSet(props: SkillPropType) {
 					<SkillDisplay
 						skillNames={props.skills[0].skillNames}
 						skillLevels={props.skills[0].skillLevels}
+						skillIcons={props.skills[0].skillIcons}
 					/>
 				);
 
@@ -62,6 +86,7 @@ export default function SkillSet(props: SkillPropType) {
 					<SkillDisplay
 						skillNames={props.skills[1].skillNames}
 						skillLevels={props.skills[1].skillLevels}
+						skillIcons={props.skills[1].skillIcons}
 					/>
 				);
 
@@ -70,6 +95,7 @@ export default function SkillSet(props: SkillPropType) {
 					<SkillDisplay
 						skillNames={props.skills[2].skillNames}
 						skillLevels={props.skills[2].skillLevels}
+						skillIcons={props.skills[2].skillIcons}
 					/>
 				);
 
@@ -78,6 +104,7 @@ export default function SkillSet(props: SkillPropType) {
 					<SkillDisplay
 						skillNames={props.skills[3].skillNames}
 						skillLevels={props.skills[3].skillLevels}
+						skillIcons={props.skills[3].skillIcons}
 					/>
 				);
 
@@ -92,9 +119,12 @@ export default function SkillSet(props: SkillPropType) {
 	}, [displayedSkill]);
 
 	return (
-		<Container size={700}>
-			<Group className={classes.buttonGroup}>{skillCategories}</Group>
-			{skillDisplay}
-		</Container>
+		<Paper className={classes.paper} shadow="lg" radius="md">
+			<Container size={1000} className={classes.wrapper}>
+				<h1 className={classes.title}>Skill Set</h1>
+				<Group className={classes.buttonGroup}>{skillCategories}</Group>
+				{skillDisplay}
+			</Container>
+		</Paper>
 	);
 }

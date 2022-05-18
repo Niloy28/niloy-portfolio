@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-scroll";
 import {
 	createStyles,
 	Header,
@@ -8,10 +9,13 @@ import {
 	Burger,
 	Text,
 	Menu,
+	Image,
+	useMantineColorScheme,
 } from "@mantine/core";
 import { useBooleanToggle } from "@mantine/hooks";
 import { BrandGithub, BrandBitbucket, BrandGitlab } from "tabler-icons-react";
 import ThemeToggle from "./ThemeToggle";
+import { ItchBlack, ItchWhite } from "../images/icons";
 
 const useStyles = createStyles((theme) => ({
 	inner: {
@@ -88,24 +92,26 @@ interface HeaderMiddleProps {
 }
 
 export function HeaderMiddle({ links }: HeaderMiddleProps) {
+	const { colorScheme } = useMantineColorScheme();
 	const [opened, toggleOpened] = useBooleanToggle(false);
 	const [active, setActive] = useState(links[0].link);
 	const { classes, cx } = useStyles();
 
 	const items = links.map((link) => (
-		<a
+		<Link
+			to={link.link}
+			offset={-70}
+			smooth
 			key={link.label}
-			href={link.link}
 			className={cx(classes.link, {
 				[classes.linkActive]: active === link.link,
 			})}
-			onClick={(event) => {
-				event.preventDefault();
+			onClick={() => {
 				setActive(link.link);
 			}}
 		>
 			{link.label}
-		</a>
+		</Link>
 	));
 
 	return (
@@ -164,6 +170,18 @@ export function HeaderMiddle({ links }: HeaderMiddleProps) {
 						target="_blank"
 					>
 						<BrandGitlab size={18} />
+					</ActionIcon>
+					<ActionIcon
+						size="lg"
+						component="a"
+						href="https://niloy28.itch.io/"
+						target="_blank"
+					>
+						<Image
+							height={18}
+							width={18}
+							src={colorScheme === "dark" ? ItchWhite : ItchBlack}
+						></Image>
 					</ActionIcon>
 				</Group>
 
