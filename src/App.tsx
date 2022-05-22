@@ -27,6 +27,7 @@ import {
 } from "./images/icons";
 import { Database, Globe, Icons, Tools } from "tabler-icons-react";
 import ProjectCategory from "./components/projects/ProjectCategory";
+import HoverMenu from "./components/HoverMenu";
 
 function App() {
 	const preferredColorScheme = useColorScheme("dark");
@@ -61,9 +62,8 @@ function App() {
 						},
 					]}
 				/>
-				<Container>
-					<HeroWithImage />
-				</Container>
+				<HoverMenu />
+				<HeroWithImage />
 
 				<Container>
 					<Element name="skillset">
@@ -103,9 +103,7 @@ function App() {
 				</Container>
 
 				<Container>
-					<Element name="projects">
-						<ProjectCategory />
-					</Element>
+					<Element name="projects"></Element>
 				</Container>
 
 				<Container>

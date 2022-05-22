@@ -1,12 +1,11 @@
 import {
-	Badge,
 	Container,
 	createStyles,
 	Image,
-	Progress,
+	RingProgress,
 	SimpleGrid,
+	Center,
 } from "@mantine/core";
-import { nanoid } from "nanoid";
 
 const useStyles = createStyles((theme) => ({
 	categoryItems: {
@@ -47,31 +46,21 @@ export default function SkillDisplay(props: SkillDisplayProps) {
 			<SimpleGrid cols={2} className={classes.categoryItems}>
 				{zippedSkillData.map((skillData) => (
 					<>
-						<Badge
-							color="lime"
-							key={nanoid()}
-							fullWidth
-							variant="gradient"
-							gradient={{ from: "teal", to: "lime", deg: 105 }}
-							size="xl"
-							leftSection={
-								<Image
-									src={skillData[2]}
-									height={20}
-									width={20}
-									fit="contain"
-								></Image>
+						<RingProgress
+							size={120}
+							thickness={10}
+							sections={[{ value: parseInt(skillData[1]), color: "teal" }]}
+							label={
+								<Center>
+									<Image
+										src={skillData[2]}
+										height={30}
+										width={30}
+										fit="contain"
+									></Image>
+								</Center>
 							}
-						>
-							{skillData[0] as string}
-						</Badge>
-
-						<Progress
-							size="lg"
-							value={parseInt(skillData[1])}
-							color="teal"
-							className={classes.skillLevel}
-						></Progress>
+						></RingProgress>
 					</>
 				))}
 			</SimpleGrid>

@@ -13,7 +13,15 @@ const useStyles = createStyles((theme) => ({
 	},
 }));
 
-export default function ProjectCategory() {
+interface ProjectCategoryProps {
+	projectType: string;
+	projectCategoryIcon: React.FC;
+}
+
+export default function ProjectCategory({
+	projectType,
+	projectCategoryIcon,
+}: ProjectCategoryProps) {
 	const { classes } = useStyles();
 
 	return (

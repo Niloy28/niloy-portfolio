@@ -16,6 +16,8 @@ const useStyles = createStyles((theme) => {
 	return {
 		wrapper: {
 			display: "flex",
+			width: "100%",
+			borderRadius: theme.radius.lg,
 			backgroundColor:
 				theme.colorScheme === "dark" ? theme.colors.dark[8] : theme.white,
 
@@ -26,7 +28,7 @@ const useStyles = createStyles((theme) => {
 
 		paper: {
 			display: "flex",
-			justifyContent: "center",
+			justifyItems: "stretch",
 
 			[BREAKPOINT]: {
 				display: "inline",
